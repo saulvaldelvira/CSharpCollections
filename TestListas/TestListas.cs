@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Colecciones;
+using System;
 
 namespace TestListas {
     [TestClass]
@@ -12,7 +13,7 @@ namespace TestListas {
         [TestMethod]
         public void TestString() {
             lS = new Lista<string>();
-            Assert.AreEqual(null, lS.GetElemento(3));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lS.GetElemento(3));
             Assert.IsTrue(-2 == lS.Borrar("dssad"));
             //Añado 3 strings a la lista
             lS.Añadir("Hola");
@@ -33,14 +34,14 @@ namespace TestListas {
             Assert.IsTrue(lS.Contiene("Hola"));
             Assert.IsFalse(lS.Contiene("..."));
             //Pruebo el método GetElemento
-            Assert.AreEqual(null, lS.GetElemento(5));
-            Assert.AreEqual(null, lS.GetElemento(-2));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lS.GetElemento(5));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lS.GetElemento(-2));
         }
 
         [TestMethod]
         public void TestPersona() {
             lP = new Lista<Persona>();
-            Assert.AreEqual(null, lP.GetElemento(3));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lP.GetElemento(3));
             //Añado 3 strings a la lista
             lP.Añadir(new Persona("Saúl", "Vald", 18));
             lP.Añadir(new Persona("Hola", "caracola", 45));
@@ -59,14 +60,14 @@ namespace TestListas {
             Assert.IsTrue(lP.Contiene(new Persona("a", "b", 0)));
             Assert.IsFalse(lP.Contiene(new Persona("sadasd", "sdad", 88)));
             //Pruebo el método GetElemento
-            Assert.AreEqual(null, lP.GetElemento(5));
-            Assert.AreEqual(null, lP.GetElemento(-2));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lP.GetElemento(5));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lP.GetElemento(-2));
         }
 
         [TestMethod]
         public void TestInt() {
             lI = new Lista<int>();
-            Assert.AreEqual(null, lI.GetElemento(3));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lI.GetElemento(3));
             //Añado 3 strings a la lista
             lI.Añadir(12);
             lI.Añadir(24);
@@ -85,14 +86,14 @@ namespace TestListas {
             Assert.IsTrue(lI.Contiene(24));
             Assert.IsFalse(lI.Contiene(78));
             //Pruebo el método GetElemento
-            Assert.AreEqual(null, lI.GetElemento(5));
-            Assert.AreEqual(null, lI.GetElemento(-2));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lI.GetElemento(5));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lI.GetElemento(-2));
         }
 
         [TestMethod]
         public void TestDouble() {
             lD = new Lista<double>();
-            Assert.AreEqual(null, lD.GetElemento(3));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lD.GetElemento(3));
             //Añado 3 strings a la lista
             lD.Añadir(45.5);
             lD.Añadir(1.21);
@@ -111,8 +112,8 @@ namespace TestListas {
             Assert.IsTrue(lD.Contiene(45.5));
             Assert.IsFalse(lD.Contiene(78));
             //Pruebo el método GetElemento
-            Assert.AreEqual(null, lD.GetElemento(5));
-            Assert.AreEqual(null, lD.GetElemento(-2));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lD.GetElemento(5));
+            Assert.ThrowsException<IndexOutOfRangeException>(() => lD.GetElemento(-2));
         }
     }
 }

@@ -4,11 +4,11 @@ using Colecciones;
 namespace TestConjuntos {
     [TestClass]
     public class TestConjuntos {
-        private Conjunto c;
+        private Conjunto<int> c;
 
         [TestInitialize]
         public void Init() {
-            c = new Conjunto();
+            c = new Conjunto<int>();
         }
 
         [TestMethod]
@@ -22,7 +22,7 @@ namespace TestConjuntos {
             Assert.AreEqual(5, c[1]);
             c = c - 2;
             Assert.AreEqual(5, c[0]);
-            Conjunto aux = new Conjunto();
+            Conjunto<int> aux = new Conjunto<int>();
             aux = aux + 12;
             aux = aux + 13;
             aux = aux + 14;
@@ -30,7 +30,7 @@ namespace TestConjuntos {
             Assert.AreEqual(12, c[1]);
             Assert.AreEqual(13, c[2]);
             Assert.AreEqual(14, c[3]);
-            Conjunto p = c & aux;
+            Conjunto<int> p = c & aux;
             Assert.AreEqual(12, p[0]);
             Assert.AreEqual(13, p[1]);
             Assert.AreEqual(14, p[2]);

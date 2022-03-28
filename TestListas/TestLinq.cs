@@ -13,7 +13,7 @@ namespace Test
             lS.Añadir("Hola");
             lS.Añadir("Caracola");
             lS.Añadir("asdf");
-            Assert.AreEqual("Caracola", lS.FirstOrDefault());
+            Assert.AreEqual("Hola", lS.FirstOrDefault());
         }
     }
 }
