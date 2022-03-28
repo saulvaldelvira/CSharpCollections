@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Colecciones
 {
-    public class Pila{
+    public class Pila<T> {
         public uint MaxElementos { get; private set; }
-        private Lista _lista;
+        private Lista<T> _lista;
         public Pila(uint max)
         {
             MaxElementos = max;
-            _lista = new Lista();
+            _lista = new Lista<T>();
         }
 
-        public bool Push(Object o)
+        public bool Push(T o)
         {
 #if DEBUG
             int n = _lista.NumeroElementos;
@@ -32,16 +28,16 @@ namespace Colecciones
             return true;
         }
 
-        public Object Pop()
+        public T Pop()
         {
 #if DEBUG
             int n = _lista.NumeroElementos;
 #endif
-            Object o = _lista.GetUltimoElemento();
+            T o = _lista.GetUltimoElemento();
             _lista.Borrar(o);
 #if DEBUG 
             if (n == _lista.NumeroElementos)
-                return null;
+                throw new IndexOutOfRangeException("La pila está llena");
 #endif
             return o;
         }

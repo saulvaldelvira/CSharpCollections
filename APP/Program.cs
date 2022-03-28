@@ -1,9 +1,9 @@
 ﻿using System;
-using Listas;
+using Colecciones;
 namespace APP {
     internal class Program {
         static void Main(string[] args) {
-            Lista l = new Lista();
+            Lista<int> l = new Lista<int>();
             Console.WriteLine("(GetElemento) Si la raíz es nula, devuelve -2?: " + (l.GetElemento(0) == null));
             Console.WriteLine("ToString de la lista vacía: \n\t" + l.ToString());
             l.Añadir(1);
